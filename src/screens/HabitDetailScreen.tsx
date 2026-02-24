@@ -18,7 +18,8 @@ type Props = NativeStackScreenProps<RootStackParamList, 'HabitDetail'>;
 
 const HabitDetailScreen: React.FC<Props> = ({ navigation, route }) => {
   const { habitId } = route.params;
-  const { getHabit, deleteHabit, checkInHabit } = useHabits();
+  const { getHabit, deleteHabit, checkInHabit, getCheckinByHabit } =
+    useHabits();
   const [loading, setLoading] = useState(false);
   const [notes, setNotes] = useState('');
 
@@ -45,6 +46,7 @@ const HabitDetailScreen: React.FC<Props> = ({ navigation, route }) => {
         notes: notes.trim() || '',
       };
       await checkInHabit(Number(habitId), newCheckIn);
+      await getCheckinByHabit(Number(habitId));
       Alert.alert('Success', 'Check-in Registrado!');
       setNotes('');
     } catch (error) {
