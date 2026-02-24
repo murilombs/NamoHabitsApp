@@ -4,7 +4,6 @@ import React, {
   useState,
   useEffect,
   ReactNode,
-  useCallback,
 } from 'react';
 import {
   CheckIn,
@@ -45,12 +44,13 @@ export const HabitProvider: React.FC<{ children: ReactNode }> = ({
       setLoading(true);
       setError(null);
       const fetchedHabits = await habitApi.getHabits();
-      fetchedHabits.forEach(async h => {
-        const checkin = await habitApi.getCheckInsByHabits(h.id);
-        h.checkIns = checkin;
-      });
-      console.log(fetchedHabits);
-      setHabits(fetchedHabits);
+      const habitsWithCheckins = await Promise.all(
+        fetchedHabits.map(async h => {
+          const checkin = await habitApi.getCheckInsByHabits(h.id);
+          return { ...h, checkIns: checkin };
+        }),
+      );
+      setHabits(habitsWithCheckins);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
       console.error('Error refreshing habits:', err);
