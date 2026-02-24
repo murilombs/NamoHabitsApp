@@ -73,6 +73,30 @@ When you want to forcefully reload, for example to reset the state of your app, 
 - **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
 - **iOS**: Press <kbd>R</kbd> in iOS Simulator.
 
+## Release SDK
+
+Durante o processo para gerar uma versão de release do SDK atravez de
+
+```sh
+
+.\gradlew assembleRelease
+
+```
+
+Foi disparado o seguinte erro
+
+```sh
+FAILURE: Build failed with an exception.
+Execution failed for task ':app:createBundleReleaseJsAndAssets'.
+> Couldn't determine Hermesc location. Please set `react.hermesCommand` to the path of the hermesc binary file. node_modules/react-native/sdks/hermesc/%OS-BIN%/hermesc
+```
+
+O problema de coopilção ja foi descoberto e documentado recentemente por outros desenvolvedores, nenhuma solução estavel foi documentada ate o momento
+
+[Couldn't determine Hermesc location](https://github.com/facebook/react-native/issues/55673)
+
+[Android - Build issue with hermesCommand](https://github.com/facebook/react-native/issues/37713)
+
 ## Congratulations! :tada:
 
 You've successfully run and modified your React Native App. :partying_face:
