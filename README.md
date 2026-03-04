@@ -75,6 +75,14 @@ When you want to forcefully reload, for example to reset the state of your app, 
 
 ## Release SDK
 
+1. Baixe a versão de Release no Google Drive [aqui](https://drive.google.com/file/d/1oRwxqCTZ1QNMxdSrzH4K7bbCvXRnEtJd/view?usp=sharing)
+
+2. Inicie um emulador de Android na mesma maquina em que a API esta em sendo executada. (Para instalar e iniciar a API siga o README em [api-habits-tracker](https://github.com/murilombs/api-habits-tracker) )
+
+3. Instale o executavel no Emulador de Android
+
+4. Abra o aplicativo no Emulador
+
 Durante o processo para gerar uma versão de release do SDK atravez de
 
 ```sh
@@ -97,25 +105,8 @@ O problema de coopilção ja foi descoberto e documentado recentemente por outro
 
 [Android - Build issue with hermesCommand](https://github.com/facebook/react-native/issues/37713)
 
-## Congratulations! :tada:
+#### _Follow up - ATUALIZAÇÃO DE CORREÇÃO_
 
-You've successfully run and modified your React Native App. :partying_face:
+Como documentado na Theread "[Couldn't determine Hermesc location](https://github.com/facebook/react-native/issues/55673)" uma solução foi encontrada e [documentada](https://github.com/facebook/react-native/issues/55673#issuecomment-3954665544).
 
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+A solução proposta se mostrou funcional ao permitir gerar uma versão de Release executavel
